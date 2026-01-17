@@ -46,6 +46,8 @@ class LuaRuntime {
       return ffi.DynamicLibrary.open('liblua.so');
     } else if (Platform.isWindows) {
       return ffi.DynamicLibrary.open("lua54.dll");
+    } else if (Platform.isMacOS) {
+      return ffi.DynamicLibrary.open("liblua.dylib");
     }
 
     return ffi.DynamicLibrary.process();
